@@ -1,0 +1,17 @@
+import os
+import datetime
+import shutil
+
+# Get today's date in YYYY_MM_DD format
+today = datetime.datetime.today().strftime('%Y_%m_%d')
+
+# Define the source and destination paths
+source_folder = r'\\server1\PROJECTS-H\04. Design\BIM\WIP'
+destination_folder = r'\\server1\PROJECTS-H\04. Design\BIM\Archive'
+
+# Create a zip archive with today's date in the filename
+zip_filename = os.path.join(destination_folder, f'RevitArchive_{today}.zip')
+shutil.make_archive(zip_filename, 'zip', source_folder)
+
+# Print a message confirming the archive was created
+print(f'Archive created: {zip_filename}')
